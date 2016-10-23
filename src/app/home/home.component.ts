@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Person } from '../person';
 
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
   persons: Person[];
   name: string;
 
-  constructor() { 
+  constructor(private router: Router) { 
     this.persons = new Array<Person>();
     this.name = '';
   }
@@ -28,6 +29,10 @@ export class HomeComponent implements OnInit {
 
   remove(index: number): void {
     this.persons.splice(index, 1);
+  }
+
+  next() {
+    this.router.navigateByUrl('/items');
   }
 
 }
