@@ -13,6 +13,8 @@ import { ItemsComponent } from './items/items.component';
 import { ConfirmComponent } from './confirm/confirm.component';
 import { CalculateComponent } from './calculate/calculate.component';
 
+import { CalculatorService} from './calculator.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,7 @@ import { CalculateComponent } from './calculate/calculate.component';
     MaterialModule.forRoot(),
     routing
   ],
-  providers: [],
+  providers: [CalculatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
