@@ -4,10 +4,22 @@ import { Person } from './person';
 @Injectable()
 export class CalculatorService {
 
+  grandtotal: number;
+  subtotal: number;
   persons: Person[];
 
   constructor() { 
     this.persons = new Array<Person>();
+    this.subtotal = 0;
+    this.grandtotal = 0;
+  }
+
+  setGrandTotal(grandtotal: number): void {
+    this.grandtotal = grandtotal;
+  }
+
+  setSubTotal(subtotal: number): void {
+    this.subtotal = subtotal;
   }
 
   get(): Person[] {
