@@ -1,17 +1,15 @@
 <md-card>
-  <md-toolbar color="primary">Who's spliting the bill?</md-toolbar>
+  <md-toolbar md-card-image>Who's spliting the bill?</md-toolbar>
   <md-card-content>
     <md-input placeholder="Name" [(ngModel)]="name"></md-input>
-    <button md-mini-fab (click)="add()">
+    <button md-mini-fab class="add-btn" (click)="add()">
       <md-icon class="md-24">add</md-icon>
     </button>
     <md-list>
       <md-list-item *ngFor="let person of persons; let i = index">
-        {{person.name}} <button md-mini-fab (click)="remove(i)"><md-icon class="md-24">delete</md-icon></button>
+        {{person.name}} <button md-mini-fab class="delete-btn" (click)="remove(i)"><md-icon class="md-24">delete</md-icon></button>
       </md-list-item>
     </md-list>
   </md-card-content>
-    <button md-button (click)="next()">Next</button>
-  <md-card-actions>
-  </md-card-actions>
+    <button md-button (click)="next()"><span class="action-btn"><strong>Next</strong></span></button>
 </md-card>

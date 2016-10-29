@@ -1,20 +1,19 @@
 <md-card>
-  <md-toolbar color="primary">What is {{person.name}} paying for?</md-toolbar>
+  <md-toolbar md-card-image>What is {{person.name}} paying for?</md-toolbar>
   <md-card-content>
-    <md-input placeholder="Name/Description" [(ngModel)]="item.name">
-      <md-hint align="end">(Optional)</md-hint>
+    <md-input placeholder="Description (Optional)" [(ngModel)]="item.name">
     </md-input>
     <md-input placeholder="Amount" [(ngModel)]="item.amount"></md-input>
-    <button md-mini-fab (click)="add()">
+    <button md-mini-fab class="add-btn" (click)="add()">
       <md-icon class="md-24">add</md-icon>
     </button>
     <md-list>
       <md-list-item *ngFor="let item of items; let i = index">
-        {{item.name}} - {{item.amount}} <button md-mini-fab (click)="remove(i)"><md-icon class="md-24">delete</md-icon></button>
+        {{item.name}} - {{item.amount}} <button md-mini-fab class="delete-btn"(click)="remove(i)"><md-icon class="md-24">delete</md-icon></button>
       </md-list-item>
     </md-list>
   </md-card-content>
-    <button md-button (click)="done()">Done</button>
+    <button md-button (click)="done()"><span class="action-btn">Done</span></button>
   <md-card-actions>
   </md-card-actions>
 </md-card>

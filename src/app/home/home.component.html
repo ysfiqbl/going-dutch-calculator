@@ -1,14 +1,12 @@
 <md-card>
-  <md-toolbar color="primary">What is the bill value?</md-toolbar>
+  <md-toolbar md-card-image>What is the bill value?</md-toolbar>
   <md-card-content>
     <md-input placeholder="Sub Total" [(ngModel)]="subtotal">
       <md-hint><i>Total value without tax</i></md-hint>
     </md-input>
     <md-input placeholder="Grand Total" [(ngModel)]="grandtotal">
       <md-hint><i>Amount you have to pay</i></md-hint>
-    </md-input>
+    </md-input>    
   </md-card-content>    
-  <md-card-actions>
-    <button md-button (click)="next()">Next</button>
-  </md-card-actions>
+    <button md-button (click)="next()"><span class="action-btn"><strong>Next</strong></span></button>
 </md-card>
