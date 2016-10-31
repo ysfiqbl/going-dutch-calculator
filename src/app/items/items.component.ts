@@ -17,10 +17,12 @@ export class ItemsComponent implements OnInit {
   items: Item[];
   personIndex: number;
 
+
+
   constructor(private _cs: CalculatorService, private router: Router) { 
     this.item = new Item();
     this.items = new Array<Item>();
-    this.persons = this._cs.get();
+    this.persons = this._cs.getPerson();
     this.personIndex = 0;
     this.person = this.persons[this.personIndex];
   }
@@ -43,12 +45,16 @@ export class ItemsComponent implements OnInit {
       this.person = this.persons[++this.personIndex];
       this.items = new Array<Item>();
       this.item = new Item();
-      console.log(this._cs.get());
+      console.log(this._cs.getPerson());
     } else {
       console.log('All persons done.');
-      console.log(this._cs.get());
+      console.log(this._cs.getPerson());
     }
     
+  }
+
+  grandtotal(person: Person): number {
+    return this._cs.getGrandTotalForPerson(person);
   }
 
 }
