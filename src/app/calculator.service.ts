@@ -14,6 +14,10 @@ export class CalculatorService {
     this.grandtotal = 0;
   }
 
+  getGrandTotalForPerson(person: Person): number {
+    return (person.subtotal()/this.subtotal) * this.grandtotal;
+  }
+
   setGrandTotal(grandtotal: number): void {
     this.grandtotal = grandtotal;
   }
@@ -22,16 +26,24 @@ export class CalculatorService {
     this.subtotal = subtotal;
   }
 
-  get(): Person[] {
+  getGrandTotal(): number {
+    return this.grandtotal;
+  }
+
+  getSubTotal(): number {
+    return this.subtotal;;
+  }
+
+  getPerson(): Person[] {
     return this.persons;
   }
 
-  add(person): Person[] {
+  addPerson(person): Person[] {
     this.persons.push(person);
     return this.persons;
   }
 
-  remove(index: number): Person[] {
+  removePerson(index: number): Person[] {
     this.persons.splice(index, 1);
     return this.persons;
   }
