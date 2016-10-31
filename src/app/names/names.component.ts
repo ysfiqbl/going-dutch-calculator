@@ -21,18 +21,18 @@ export class NamesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.persons = this._cs.get();
+    this.persons = this._cs.getPerson();
   }
 
   add(): void {
     let p = new Person();
     p.name = this.name;
-    this.persons = this._cs.add(p);
+    this.persons = this._cs.addPerson(p);
     this.name = '';
   }
 
   remove(index: number): void {
-    this.persons = this._cs.remove(index);
+    this.persons = this._cs.removePerson(index);
   }
 
   next() {
