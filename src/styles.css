@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+	color: #263238;
+}
+
+md-card {
+	background: white;
+}
+
+md-toolbar {
+	background: #FF5722;
+	color: white;
+}
+
+
+.add-btn {
+	background: #FF5722;
+	color: white;
+}
+
+.delete-btn {
+	background: #FF5722;
+	color: white;
+}
+
+md-hint {
+	color: #9E9E9E;
+}
+
+md-icon {
+	color: white;
+}
+
+button {
+	background: #FF5722;
+	color: white;
+}
+
+.action-btn {
+	background: #FF5722;
+	color: white;
+}
