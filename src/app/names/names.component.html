@@ -11,5 +11,5 @@
       </md-list-item>
     </md-list>
   </md-card-content>
-    <button md-button (click)="next()"><span class="action-btn"><strong>Next</strong></span></button>
+    <button md-button (click)="next()" [disabled]="!canNavigate()"><span class="action-btn"><strong>Next</strong></span></button>
 </md-card>
