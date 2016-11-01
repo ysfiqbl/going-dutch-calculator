@@ -36,8 +36,11 @@ export class NamesComponent implements OnInit {
   }
 
   next() {
-    this.router.navigateByUrl('/items');
+    this.router.navigateByUrl(`/0/${this._cs.persons[0].name.toLowerCase()}/items`);
   }
 
+  canNavigate() {
+    return this._cs.persons.length > 0;
+  }
 
 }
