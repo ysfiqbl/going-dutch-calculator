@@ -17,23 +17,3 @@
   <md-card-actions>
   </md-card-actions>
 </md-card>
-
-<md-card>
-  <md-toolbar md-card-image>Bill Breakdown</md-toolbar>
-  <md-card-content>    
-    <md-list>
-      <md-list-item *ngFor="let person of persons; let i = index">        
-        <md-list>
-          <md-list-item><h2>{{person.name}}</h2></md-list-item>
-          <md-list-item *ngFor="let item of person.items; let i = index">
-            {{item.name}} - {{item.amount}}
-          </md-list-item>
-          <md-list-item>{{person.subtotal()}}</md-list-item>
-          <md-list-item></md-list-item>
-        </md-list>                
-      </md-list-item>
-    </md-list>
-  </md-card-content>
-  <md-card-actions>
-  </md-card-actions>
-</md-card>
