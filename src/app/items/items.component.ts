@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { CalculatorService } from '../calculator.service';
 import { Person } from '../person';
 import { Item } from '../item';
@@ -19,15 +20,25 @@ export class ItemsComponent implements OnInit {
 
 
 
-  constructor(private _cs: CalculatorService, private router: Router) { 
-    this.item = new Item();
-    this.items = new Array<Item>();
-    this.persons = this._cs.getPerson();
-    this.personIndex = 0;
-    this.person = this.persons[this.personIndex];
+  constructor(
+    private _cs: CalculatorService, 
+    private router: Router,
+    private route: ActivatedRoute,
+    private location: Location
+  ) { 
+    
   }
 
   ngOnInit() {
+    this.item = new Item();
+    this.items = new Array<Item>();
+    this.persons = this._cs.getPerson();
+
+    this.route.params.forEach((params: Params) => {
+      console.log(params);
+      this.personIndex = +params['index'];
+      this.person = this.persons[this.personIndex];      
+    });
   }
 
   add() {
@@ -41,14 +52,14 @@ export class ItemsComponent implements OnInit {
 
   done() {
     this.persons[this.personIndex].items = this.items;
-    if (this.personIndex != (this.persons.length - 1)) {
-      this.person = this.persons[++this.personIndex];
-      this.items = new Array<Item>();
-      this.item = new Item();
-      console.log(this._cs.getPerson());
+    this.personIndex++;
+    this.item = new Item();
+    this.items = new Array<Item>();
+    console.log(this.persons);
+    if (this.personIndex < this.persons.length) {
+      this.router.navigateByUrl(`/${this.personIndex}/${this._cs.persons[this.personIndex].name.toLowerCase()}/items`);
     } else {
-      console.log('All persons done.');
-      console.log(this._cs.getPerson());
+      this.router.navigateByUrl(`/confirm`)
     }
     
   }
